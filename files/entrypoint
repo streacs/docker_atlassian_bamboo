@@ -1,1 +1,7 @@
 #!/bin/bash
+
+if [ "$(stat -c "%Y" "${APPLICATION_INST}/atlassian-bamboo/WEB-INF/classes/bamboo-init.properties")" -eq "0" ]; then
+  sed --in-place "s~#bamboo.home=C:\/bamboo\/bamboo-home~bamboo.home=$APPLICATION_HOME~" ${APPLICATION_INST}/atlassian-bamboo/WEB-INF/classes/bamboo-init.properties
+fi
+
+exec "$@"
