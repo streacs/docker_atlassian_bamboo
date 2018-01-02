@@ -67,6 +67,7 @@ public class PlanSpec {
             project(),
             "STREACS Atlassian Bamboo", "CF54AB")
             .enabled(true)
+            .noPluginConfigurations()
             .noNotifications()
             .linkedRepositories("DCK - STREACS Atlassian Bamboo (master)")
             .planBranchManagement(new PlanBranchManagement()
