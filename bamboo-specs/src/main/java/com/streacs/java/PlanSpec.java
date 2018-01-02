@@ -102,7 +102,7 @@ public class PlanSpec {
                             deployTask()
                         )
                         .tasks(
-                            cleanTask()
+                            removeTask()
                         )
                 )
             );
@@ -140,11 +140,11 @@ public class PlanSpec {
             .fileFromPath("Buildfile")
             .argument("deploy");
     }
-    ScriptTask cleanTask() {
+    ScriptTask removeTask() {
         return new ScriptTask()
             .description("Build Docker container")
             .location(ScriptTaskProperties.Location.FILE)
             .fileFromPath("Buildfile")
-            .argument("clean");
+            .argument("remove");
     }
 }
