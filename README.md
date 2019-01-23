@@ -6,11 +6,10 @@ This is a Docker-Image for Atlassian Bamboo based on Debian 9.
 Run Atlassian Bamboo standalone and navigate to `http://[dockerhost]:8085` to finish configuration:
 
 ```bash
-docker run -ti -e ORACLE_JAVA_EULA=accepted -p 8085:8085 -p 54663:54663 streacs/atlassian-bamboo:x.x.x
+docker run -ti -p 8085:8085 -p 54663:54663 streacs/atlassian-bamboo:x.x.x
 ```
 
 ## Environment Variables
-* (M) ORACLE_JAVA_EULA = accepted
 * (O) JVM_ARGUMENTS =
 * (I) SYSTEM_USER = bamboo
 * (I) SYSTEM_GROUP = bamboo
@@ -33,25 +32,16 @@ docker run -ti -e ORACLE_JAVA_EULA=accepted -p 8085:8085 -p 54663:54663 streacs/
 ## Volumes
 * /var/opt/atlassian/application-data/bamboo
 
-## Oracle end user license agreement
-To run this container you have to accept the terms of the Oracle Java end user license agreement.
-http://www.oracle.com/technetwork/java/javase/terms/license/index.html
-
-Add following environment variable to your configuration : 
-```bash
--e ORACLE_JAVA_EULA=accepted
-```
-
 ## Examples
 
 Modify JVM memory
 ```bash
-docker run -ti -e ORACLE_JAVA_EULA=accepted -p 8085:8085 -p 54663:54663 -e JVM_MEMORY_MIN=1024m -e JVM_MEMORY_MAX=2048m streacs/atlassian-bamboo:x.x.x
+docker run -ti -p 8085:8085 -p 54663:54663 -e JVM_MEMORY_MIN=1024m -e JVM_MEMORY_MAX=2048m streacs/atlassian-bamboo:x.x.x
 ```
 
 Persist application data
 ```bash
-docker run -ti -e ORACLE_JAVA_EULA=accepted -p 8085:8085 -p 54663:54663 -v BAMBOO-DATA:/var/opt/atlassian/application-data/bamboo streacs/atlassian-bamboo:x.x.x
+docker run -ti -p 8085:8085 -p 54663:54663 -v BAMBOO-DATA:/var/opt/atlassian/application-data/bamboo streacs/atlassian-bamboo:x.x.x
 ```
 
 ## Databases
